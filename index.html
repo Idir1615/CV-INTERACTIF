@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CV de Idir Sehrane">
+    <meta name="author" content="Portfolio">
+    <title>CV de Idir Sehrane</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #007bff 0%, #6f42c1 100%);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .navbar {
+            background: rgba(0, 123, 255, 0.9);
+            padding: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        .nav-link {
+            color: #fff !important;
+            font-weight: 400;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #ffc107 !important;
+            transform: scale(1.1);
+        }
+        .profile-img {
+            max-width: 200px;
+            border-radius: 50%;
+            border: 5px solid #ffc107;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease;
+        }
+        .profile-img:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+        .contact-info {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: 15px;
+            color: #333;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .section-title {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem auto;
+            max-width: 1000px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .skill-circle {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-circle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        .skill-circle svg { transform: rotate(-90deg); }
+        .skill-circle .circle-bg { fill: none; stroke: rgba(255, 255, 255, 0.2); stroke-width: 12; }
+        .skill-circle .circle-progress { fill: none; stroke-linecap: round; stroke-width: 12; stroke-dasharray: 314; animation: circle-progress 2s ease-out forwards; }
+        .skill-circle.html .circle-progress { stroke: #ff5733; stroke-dashoffset: 62.8; }
+        .skill-circle.css .circle-progress { stroke: #00aaff; stroke-dashoffset: 94.2; }
+        .skill-circle.php .circle-progress { stroke: #9b59b6; stroke-dashoffset: 157; }
+        .skill-circle.sql .circle-progress { stroke: #2ecc71; stroke-dashoffset: 125.6; }
+        .skill-circle.java .circle-progress { stroke: #f1c40f; stroke-dashoffset: 125.6; }
+        .skill-circle.linux .circle-progress { stroke: #00cc00; stroke-dashoffset: 157; }
+        .skill-circle span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+        }
+        @keyframes circle-progress {
+            0% { stroke-dashoffset: 314; }
+            100% { stroke-dashoffset: inherit; }
+        }
+        .zoom-in { opacity: 0; transform: scale(0.9); transition: all 0.6s ease-out; }
+        .zoom-in.visible { opacity: 1; transform: scale(1); }
+        .icon-link img {
+            width: 60px;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .icon-link img:hover {
+            transform: scale(1.2) rotate(10deg);
+            filter: brightness(1.3) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+        }
+        .hobby-img { max-width: 120px; border-radius: 10px; transition: transform 0.3s ease; }
+        .hobby-img:hover { transform: scale(1.1); }
+        footer {
+            background: #1e2a44;
+            padding: 1.5rem;
+            text-align: center;
+            color: #ffc107;
+            font-weight: 400;
+        }
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+            background: #ffc107;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        #scrollTopBtn:hover { background: #ffca2c; transform: scale(1.1); }
+        .btn-custom {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ffc107;
+            color: #1e2a44;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-custom:hover { background: #ffca2c; transform: scale(1.05); }
+        button1 {
+            align-items: center;
+            background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+            border: 0;
+            border-radius: 8px;
+            box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+            box-sizing: border-box;
+            color: #ffffff;
+            display: flex;
+            font-size: 18px;
+            justify-content: center;
+            line-height: 1em;
+            max-width: 100%;
+            min-width: 140px;
+            padding: 3px;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button1:hover { outline: 0; }
+        button1 span {
+            background-color: rgb(5, 6, 45);
+            padding: 16px 24px;
+            border-radius: 6px;
+            width: 100%;
+            height: 100%;
+            transition: 300ms;
+        }
+        button1:hover span { background: none; }
+        button1:active { transform: scale(0.9); }
+        @media (max-width: 768px) {
+            .profile-img { max-width: 150px; }
+            .section-title { font-size: 1.5rem; }
+            .skill-circle { width: 100px; height: 100px; }
+            .skills-container { gap: 1rem; }
+            section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles"></canvas>
+
+    <nav class="navbar navbar-expand-lg sticky-top" aria-label="Menu de navigation">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Portfolio : Sehrane Idir : MEDIASCHOOL </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#À propos">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Compétences">Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Experiences">Expériences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Formation">Formation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Projets">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Veilles">Veilles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Loisir">Loisirs</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header class="container text-center my-5 zoom-in">
+            <h1 class="display-4" id="typing-title"></h1>
+            <img src="css/images/IMG-20231030-WA0018 (1).jpg" alt="Photo de profil de Idir Sehrane" class="profile-img mt-3">
+            <div class="contact-info mt-4">
+                <p><strong>Prénom :</strong> Idir</p>
+                <p><strong>Nom :</strong> Sehrane</p>
+                <p><strong>Âge :</strong> 20 ans</p>
+                <p><strong>Téléphone :</strong> 07.69.02.69.23</p>
+            </div>
+        </header>
+
+        <section id="À propos" class="zoom-in">
+            <h2 class="section-title">À propos</h2>
+            <p class="text-center">
+                Salut, moi c’est Idir Sehrane 👋 ! Passionné d’informatique depuis toujours, je suis en 1re année de BTS SIO (option SLAM) à l’école IRIS 🗺️. Je recherche un stage en informatique du <strong>2 juin au 5 juillet 2025</strong> et une alternance pour 2026 (3 jours en entreprise, 2 jours en cours) pour coder des projets innovants 💻 et progresser dans le développement.
+                <span id="secret-text" style="display: none;">Psst... tu as trouvé mon secret ! 🎉 Voici un bonus : j’adore coder en écoutant du rap.</span>
+            </p>
+            <button id="secret-btn" style="background: none; border: none; color: #ffc107; cursor: pointer;">🔍</button>
+             <a class="navbar-brand" href="PDF/Idir SEHRANE IRIS - CV MEDIASCHOOL.pdf">Portfolio : Sehrane Idir : MEDIASCHOOL 
+                <button1><span class="text">Télécharger mon CV</span></button1>
+            </a>
+        </section>
+
+        <section id="Compétences" class="zoom-in">
+            <h2 class="section-title">Compétences</h2>
+            <h3>Mes compétences en développement 👨‍💻</h3>
+            <div class="skills-container">
+                <div class="skill-circle html"><svg width="130" height="130"><circle class="circle-bg" cx="65" cy="65" r="55"></circle><circle class="circle-progress" cx="65" cy="65" r="55" stroke-dashoffset="62.8"></circle></svg><span>HTML<br>Intermédiaire</span></div>
+                <div class="skill-circle css"><svg width="130" height="130"><circle class="circle-bg" cx="65" cy="65" r="55"></circle><circle class="circle-progress" cx="65" cy="65" r="55" stroke-dashoffset="94.2"></circle></svg><span>CSS<br>Débutant avancé</span></div>
+                <div class="skill-circle php"><svg width="130" height="130"><circle class="circle-bg" cx="65" cy="65" r="55"></circle><circle class="circle-progress" cx="65" cy="65" r="55" stroke-dashoffset="157"></circle></svg><span>PHP<br>Débutant</span></div>
+                <div class="skill-circle sql"><svg width="130" height="130"><circle class="circle-bg" cx="65" cy="65" r="55"></circle><circle class="circle-progress" cx="65" cy="65" r="55" stroke-dashoffset="125.6"></circle></svg><span>MySQL<br>Débutant</span></div>
+                <div class="skill-circle java"><svg width="130" height="130"><circle class="circle-bg" cx="65" cy="65" r="55"></circle><circle class="circle-progress" cx="65" cy="65" r="55" stroke-dashoffset="125.6"></circle></svg><span>Java<br>Débutant</span></div>
+                <div class="skill-circle linux"><svg width="130" height="130"><circle class="circle-bg" cx="65" cy="65" r="55"></circle><circle class="circle-progress" cx="65" cy="65" r="55" stroke-dashoffset="157"></circle></svg><span>Linux<br>Débutant</span></div>
+            </div>
+            <h3 class="mt-4">Mes outils ⚙️</h3>
+            <div class="row text-center">
+                <div class="col-md-3"><p>Eclipse</p></div>
+                <div class="col-md-3"><p>XAMPP</p></div>
+                <div class="col-md-3"><p>Visual Studio Code</p></div>
+                <div class="col-md-3"><p>GitHub</p></div>
+            </div>
+        </section>
+
+        <section id="Experiences" class="zoom-in">
+            <h2 class="section-title">Expériences</h2>
+            <ul class="list-unstyled text-center">
+                <li><strong>Recherche stage informatique</strong> - 2 juin au 5 juillet 2025</li>
+                <li><strong>Hôte événementiel</strong> - M&M’s, L’Isle-Adam (Juin 2024)</li>
+                <li><strong>Hôte événementiel</strong> - Nespresso Premium, Saint-Brice (Mars 2024 - Avril 2024)</li>
+                <li><strong>Stage comptabilité</strong> - JCJ, Bagnolet (Juin 2021 - Juillet 2021)</li>
+            </ul>
+        </section>
+
+        <section id="Formation" class="zoom-in">
+            <h2 class="section-title">Formation</h2>
+            <ul class="list-unstyled text-center">
+                <li><strong>BTS SIO (1re année en cours)</strong> - <a href="https://ecoleiris.fr" target="_blank" style="color: #ffc107;">IRIS</a>, Paris (Octobre 2024 - Juillet 2025)</li>
+                <li><strong>L1 Informatique</strong> - Université Sorbonne Paris Nord (Septembre 2023 - Juin 2024)</li>
+                <li><strong>Bac Mathématiques - Physique-Chimie</strong> - Lycée Jean-Jacques Rousseau, Sarcelles (2021 - 2023)</li>
+            </ul>
+            <h3 class="mt-4">Qu’est-ce que le BTS SIO ? 🎓</h3>
+            <p class="text-center">
+                Le BTS SIO forme en 2 ans aux métiers de l’informatique. J’ai choisi l’option <strong>SLAM (Solutions Logicielles et Applications Métiers)</strong> pour me spécialiser dans le développement de logiciels et applications 💻, avec des compétences en programmation (HTML, PHP, Java) et gestion de bases de données (MySQL).
+            </p>
+        </section>
+
+        <!-- ===================== PROJETS (modifié uniquement ici) ===================== -->
+        <section id="Projets" class="zoom-in">
+            <h2 class="section-title">Projets</h2>
+            <p class="text-center">Voici mes projets réalisés à ce jour 🚧 :</p>
+            <div class="row text-center">
+
+                <!-- CV en ligne -->
+                <div class="col-md-6 mb-3">
+                    <a href="https://github.com/Idir1615/CV-EN-LIGNE" target="_blank" style="color: #ffc107;"><strong>CV en ligne</strong></a>
+                    <p>Site interactif - HTML, CSS, JavaScript</p>
+                    <p>
+                        <strong>- Développer des interfaces web simples</strong><br>
+                        <strong>- Intégrer des éléments graphiques dans une page web</strong><br>
+                        <strong>- Publier un site statique</strong><br>
+                        <strong>- Utiliser des outils de versionning (Git, si utilisé)</strong>
+                    </p>
+                </div>
+
+                <!-- Première page HTML -->
+                <div class="col-md-6 mb-3">
+                    <a href="https://github.com/Idir1615/PREMIEREPAGEHTML" target="_blank" style="color: #ffc107;"><strong>Première page HTML</strong></a>
+                    <p>Initiation web - HTML, CSS</p>
+                    <p>
+                        <strong>- Structurer une page web avec HTML</strong><br>
+                        <strong>- Mettre en forme du contenu avec CSS</strong><br>
+                        <strong>- Respecter les standards du web</strong>
+                    </p>
+                </div>
+
+                <!-- Site de vente -->
+                <div class="col-md-6 mb-3">
+                    <a href="https://github.com/Idir1615/Projet-Groupe-SITE-VENTE" target="_blank" style="color: #ffc107;"><strong>Site de vente</strong></a>
+                    <p>E-commerce - PHP, MySQL</p>
+                    <p>
+                        <strong>- Concevoir et implémenter une base de données</strong><br>
+                        <strong>- Développer des composants d’accès aux données</strong><br>
+                        <strong>- Mettre en œuvre un CRUD complet</strong><br>
+                        <strong>- Sécuriser les échanges et données utilisateurs</strong>
+                    </p>
+                </div>
+
+                <!-- Site immobilier -->
+                <div class="col-md-6 mb-3">
+                    <a href="https://github.com/Idir1615/SITE-IMMO-BDD" target="_blank" style="color: #ffc107;"><strong>Site immobilier</strong></a>
+                    <p>Gestion BDD - PHP, MySQL, CSS</p>
+                    <p>
+                        <strong>- Concevoir une application web connectée à une BDD</strong><br>
+                        <strong>- Développer des formulaires et requêtes SQL</strong><br>
+                        <strong>- Implémenter une authentification basique</strong><br>
+                        <strong>- Générer des pages dynamiques à partir des données</strong>
+                    </p>
+                </div>
+
+                <!-- GLPI -->
+                <div class="col-md-6 mb-3">
+                    <a href="https://github.com/Idir1615/GLPI" target="_blank" style="color: #ffc107;"><strong>Déploiement d'un serveur GLPI</strong></a>
+                    <p>Installation et configuration d'un serveur GLPI</p>
+                    <p>
+                        <strong>- Installer et configurer un service réseau</strong><br>
+                        <strong>- Administrer une solution open-source</strong><br>
+                        <strong>- Gérer des comptes utilisateurs et droits d’accès</strong><br>
+                        <strong>- Documenter une procédure technique</strong>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+        <!-- =================== FIN PROJETS =================== -->
+
+        <section id="Veilles" class="zoom-in">
+            <h2 class="section-title">Veille Technologique 📔</h2>
+            <p class="text-center">Sujet : <strong>L’avenir du développement web avec l’IA</strong></p>
+            <ul class="list-unstyled">
+                <li><strong>Qu’est-ce que l’IA dans le dev web ?</strong> - 10/03/2025 - L’IA aide à automatiser le code (ex. GitHub Copilot).<br><em>Source : xAI Blog</em></li>
+                <li><strong>IA et cybersécurité</strong> - 01/03/2025 - Les outils IA détectent les menaces en temps réel.<br><em>Source : IBM</em></li>
+            </ul>
+        </section>
+
+        <section id="Contact" class="text-center zoom-in">
+            <h2 class="section-title">Contact</h2>
+            <div class="d-flex justify-content-center gap-5">
+                <a href="mailto:idir.sehrane@gmail.com" class="icon-link"><img src="css/images/5968534.png" alt="Email"></a>
+                <a href="https://www.linkedin.com/in/idir-sehrane-239a97259/" target="_blank" class="icon-link"><img src="css/images/img.icons8.png" alt="LinkedIn"></a>
+                <a href="https://github.com/Idir1615" target="_blank" class="icon-link"><img src="css/images/25231.png" alt="GitHub"></a>
+            </div>
+            <form class="mt-4" action="mailto:idir.sehrane@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Votre nom" class="form-control mb-3" required>
+                <input type="email" name="email" placeholder="Votre email" class="form-control mb-3" required>
+                <textarea name="message" placeholder="Votre message" class="form-control mb-3" rows="4" required></textarea>
+                <button type="submit" class="btn-custom">Envoyer</button>
+            </form>
+        </section>
+
+        <section id="Loisir" class="zoom-in">
+            <h2 class="section-title">Loisirs</h2>
+            <div class="row text-center">
+                <div class="col-md-6 mb-4">
+                    <img src="css/images/7120371-cartoon-black-game-joystick-gui-console-icon-vector-illustration-joystick-for-computer-games-gamepad-for-entertainment-vectoriel.jpg" alt="Jeux vidéo" class="hobby-img">
+                    <h4>Jeux vidéo</h4>
+                    <p>Fan de FPS, RPG et compétitions sur Valorant.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <img src="css/images/power.jpg" alt="Powerlifting" class="hobby-img">
+                    <h4>Powerlifting</h4>
+                    <p>Entraînement physique et street-workout pour relever des défis.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h4>Réparation informatique</h4>
+                    <p>Exploration hardware/software et dépannage d’appareils.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h4>Montage vidéo & IA</h4>
+                    <p>Création de vidéos et histoires avec outils d’intelligence artificielle.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Idir Sehrane</p>
+    </footer>
+
+    <button id="scrollTopBtn" class="btn"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+        scrollTopBtn.onclick = function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+
+        const zoomElements = document.querySelectorAll('.zoom-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.3 });
+        zoomElements.forEach(element => observer.observe(element));
+
+        const text = "Étudiant en BTS SIO - Recherche Alternance (2 ème année) ou Stage (Juin à Juillet) ";
+        let index = 0;
+        function type() {
+            if (index < text.length) {
+                document.getElementById("typing-title").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 100);
+            }
+        }
+        window.onload = type;
+
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const particlesArray = [];
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 5 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        function init() {
+            for (let i = 0; i < 50; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                if (particlesArray[i].size <= 0.2) {
+                    particlesArray.splice(i, 1);
+                    i--;
+                    particlesArray.push(new Particle());
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        init();
+        animate();
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Bouton secret
+        document.getElementById('secret-btn').addEventListener('click', function() {
+            document.getElementById('secret-text').style.display = 'inline';
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
